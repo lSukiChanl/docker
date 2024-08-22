@@ -2,7 +2,7 @@
 
 ## 1. Install Docker and Docker-Compose
 
-- [Docker && Docker-Compose Install documentation](https://github.com/lSukiChanl/docker/tree/main/docker-installation "Docker && Docker-Compose Install documentation")
+- [Docker & Docker-Compose Install documentation](https://github.com/lSukiChanl/docker/tree/main/docker-installation "Docker && Docker-Compose Install documentation")
 
 ## 2. Create a docker-compose.yml file similar to this:
 
@@ -41,3 +41,7 @@ Default Admin User:
 | admin@example.com  | changeme  |
 
 Immediately after logging in with this default user you will be asked to modify your details and change your password.
+
+## 5. Example
+
+- [My Nginx-Proxy-Manager](https://npm.ichimonogatari.com/login "My Nginx-Proxy-Manager")
