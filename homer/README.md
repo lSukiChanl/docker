@@ -35,6 +35,8 @@ To modify or add bookmarks, the file to be edited is located at: `www/assets/con
 
 The following YAML file is the default one included with the container installation.
 
+- [http://your-ip:8002](http://your-ip:8002 "http://your-ip:8002")
+
 ```yaml
 title: "Homer "
 subtitle: "DashBoard"
@@ -115,3 +117,7 @@ services:
         url: "https://www.google.com/"
         target: "_blank"
 ```
+
+## 7. Example
+
+- [My Bitwarden](https://bitwarden.ichimonogatari.com "Bitwarden")
