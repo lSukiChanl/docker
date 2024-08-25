@@ -1,0 +1,33 @@
+services:
+  mysql:
+    container_name: mysql
+    image: mysql:9.0.1
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: db
+      MYSQL_USER: MysqlUsername
+      MYSQL_PASSWORD: MysqlPassword
+      MYSQL_ROOT_PASSWORD: MysqlPassword
+    ports:
+      - '3306:3306'
+    volumes:
+      - ./db:/var/lib/mysql
+    networks:
+      - network
+
+  phpmyadmin:
+    container_name: phpmyadmin
+    image: phpmyadmin
+    restart: unless-stopped
+    ports:
+      - '8004:80'
+    environment:
+      - PMA_HOST=mysql          # Points to the MySQL service within the Docker network
+      - PMA_PORT=3306           # Optional: The port of MySQL, default is 3306
+      - PMA_ARBITRARY=0         # Disables the option to specify an arbitrary server
+    networks:
+      - network
+
+networks:
+  network:
+    driver: bridge
