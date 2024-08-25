@@ -1,0 +1,18 @@
+services:
+  mongo:
+    image: mongo
+    container_name: mongo
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=MongoUsernameDB
+      - MONGO_INITDB_ROOT_PASSWORD=MongoPasswordDB
+    volumes:
+      - ./db:/data/db
+    ports:
+      - 27017:27017
+    networks:
+      - individual-network
+    restart: unless-stopped
+
+networks:
+  individual-network:
+    driver: bridge

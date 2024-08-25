@@ -67,4 +67,4 @@ docker-compose up -d
 
 ## 7. Example
 
-- [My Bitwarden](https://bitwarden.ichimonogatari.com "Bitwarden")
+- [My Homer](https://home.ichimonogatari.com "Homer")
