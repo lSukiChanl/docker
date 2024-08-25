@@ -1,0 +1,17 @@
+services:
+  vaultwarden:
+    image: vaultwarden/server:latest
+    container_name: bitwarden
+    volumes:
+      - ./data:/data/
+    environment:
+      - SIGNUPS_ALLOWED=false 
+      # true = New accounts can be create
+      # false = New accounts cannot be create
+    ports:
+      - '8001:80'
+    restart: unless-stopped
+
+networks:
+  network:
+    driver: bridge
