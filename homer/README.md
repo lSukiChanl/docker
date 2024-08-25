@@ -19,6 +19,10 @@ services:
     user: 1000:1000
     environment:
       - INIT_ASSETS=1
+
+networks:
+  network:
+    driver: bridge
 ```
 
 ## 3. Bring up your stack by running

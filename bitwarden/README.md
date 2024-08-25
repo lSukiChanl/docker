@@ -20,6 +20,10 @@ services:
     ports:
       - '8001:80'
     restart: unless-stopped
+
+networks:
+  network:
+    driver: bridge
 ```
 
 This is the bare minimum configuration required. See the documentation for more.
