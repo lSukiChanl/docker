@@ -1,0 +1,18 @@
+services:
+  mysql:
+    container_name: mysql
+    image: mysql:9.0.1
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: db
+      MYSQL_USER: MysqlUsername
+      MYSQL_PASSWORD: MysqlPassword
+      MYSQL_ROOT_PASSWORD: MysqlPassword
+    ports:
+      - '3306:3306'
+    volumes:
+      - ./db:/var/lib/mysql
+
+networks:
+  network:
+    driver: bridge
