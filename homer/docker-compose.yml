@@ -1,0 +1,16 @@
+services:
+  homer:
+    image: b4bz/homer
+    container_name: homer
+    volumes:
+      - ./data/:/www/assets
+    restart: unless-stopped
+    ports:
+      - '8002:8080'
+    user: 1000:1000
+    environment:
+      - INIT_ASSETS=1
+
+networks:
+  network:
+    driver: bridge
