@@ -1,0 +1,18 @@
+services:
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    container_name: sqlserver
+    restart: unless-stopped
+    environment:
+      ACCEPT_EULA: "Y"
+      MSSQL_SA_PASSWORD: "Password#2024SQL"
+      MSSQL_PID: "Developer"
+      MSSQL_TCP_PORT: 1433
+    ports:
+      - '1433:1433'
+    volumes:
+      - ./db:/var/opt/mssql
+      
+networks:
+  network:
+    driver: bridge
