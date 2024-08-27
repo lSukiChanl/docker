@@ -1,0 +1,13 @@
+services:
+  php:
+    image: php:8.2-apache
+    container_name: php
+    restart: always
+    volumes:
+      - ./www:/var/www/html
+    ports:
+      - "8005:80"
+
+networks:
+  network:
+    driver: bridge
