@@ -1,0 +1,14 @@
+services:
+  node:
+    image: node:20
+    container_name: node
+    working_dir: /usr/src/app
+    volumes:
+      - ./www:/usr/src/app
+    ports:
+      - '3000:3000'
+    entrypoint: ["sh", "-c", "npm install && node index.js"]
+
+networks:
+  network:
+    driver: bridge
