@@ -1,0 +1,40 @@
+services: 
+
+  bookstack:
+    image: ghcr.io/linuxserver/bookstack
+    container_name: bookstack
+    restart: unless-stopped
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=America/Monterrey  
+      - APP_URL=https://notes.ichimonogatari.com
+      - DB_HOST=bookstack_db
+      - DB_USER=bookstack
+      - DB_PASS=p4ssw0rd
+      - DB_DATABASE=bookstackapp
+    volumes:
+      - ./app-data:/config
+    ports:
+      - '8006:80'
+    depends_on:
+      - bookstack_db
+
+  bookstack_db:
+    image: ghcr.io/linuxserver/mariadb
+    container_name: bookstack_db
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=America/Monterrey  
+      - MYSQL_ROOT_PASSWORD=p4ssw0rd
+      - MYSQL_DATABASE=bookstackapp
+      - MYSQL_USER=bookstack
+      - MYSQL_PASSWORD=p4ssw0rd
+    volumes:
+      - ./db-data:/config
+    restart: unless-stopped
+
+networks:
+  network:
+    driver: bridge
